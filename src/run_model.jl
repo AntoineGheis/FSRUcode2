@@ -2,21 +2,38 @@ using FSRU, Distances, JuMP
 
 
 #rewriting data to study juste a "simple case" 
-countries = ["DK"]
+#= countries = ["DK"]
 coord_countries = [coord_DK]
 country_prices = [country_price_dk]
 import_countries = [import_dk]
 export_countries = [export_DK]
 TOTAL_DEMAND_countries = [TOTAL_DEMAND_DK] #ok
-pattern_countries = [r"^DK..$"] #ok
+pattern_countries = [r"^DK..$"] #ok =#
 
-countries = ["DE"]
+#= countries = ["DE"]
 coord_countries = [coord_DE]
 country_prices = [country_price_de]
 import_countries = [import_de]
 export_countries = [export_DE]
 TOTAL_DEMAND_countries = [TOTAL_DEMAND_DE] #ok
-pattern_countries = [r"^DE..$"] #ok
+pattern_countries = [r"^DE..$"] #ok =#
+
+countries = ["CZ"]
+coord_countries = [coord_CZ]
+country_prices = [country_price_cz]
+import_countries = [import_cz]
+export_countries = [export_CZ]
+TOTAL_DEMAND_countries = [TOTAL_DEMAND_CZ] #ok
+pattern_countries = [r"^CZ..$"] #ok
+
+
+#= countries = ["HR"]
+coord_countries = [coord_HR]
+country_prices = [country_price_hr]
+import_countries = [import_hr]
+export_countries = [export_HR]
+TOTAL_DEMAND_countries = [TOTAL_DEMAND_HR] #ok
+pattern_countries = [r"^HR..$"] #ok =#
 
 time_start = 2022 #CANNOT BE CHANGED
 

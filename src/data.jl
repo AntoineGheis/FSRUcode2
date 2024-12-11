@@ -580,7 +580,7 @@ country_price_bg = Dict("RO" => price_hh, "GR" => price_hh, "RU" => price_hh, "U
 
 country_price_cy = Dict()
 
-country_price_cz = Dict("DE" => price_hh, "PL" => price_hh, "SK" => price_hh, "AT" => price_hh, "NotSpec" => price_hh, "RU" => price_hh, "NO" => price_hh, "CH" => price_hh,"ES" =>price_hh)
+country_price_cz = Dict("DE" => price_hh, "PL" => price_hh, "SK" => price_hh, "AT" => price_hh, "NotSpec" => price_hh, "RU" => price_hh, "NO" => price_hh, "CH" => price_hh, "ES" => price_hh)
 
 country_price_hr = Dict("SI" => price_hh, "HU" => price_hh, "EG" => price_hh, "US" => price_hh, "QA" => price_hh, "NG" => price_hh, "US" => price_hh, "TT" => price_hh,"QA" => price_hh, "BE" => price_hh, "CH" => price_hh, "RS" =>price_hh, "BA" =>price_hh,  "ME" =>price_hh, "XX" => price_hh)
 
