@@ -18,13 +18,13 @@ export_countries = [export_DE]
 TOTAL_DEMAND_countries = [TOTAL_DEMAND_DE] #ok
 pattern_countries = [r"^DE..$"] #ok =#
 
-countries = ["CZ"]
-coord_countries = [coord_CZ]
-country_prices = [country_price_cz]
-import_countries = [import_cz]
-export_countries = [export_CZ]
-TOTAL_DEMAND_countries = [TOTAL_DEMAND_CZ] #ok
-pattern_countries = [r"^CZ..$"] #ok
+# countries = ["CZ"]
+# coord_countries = [coord_CZ]
+# country_prices = [country_price_cz]
+# import_countries = [import_cz]
+# export_countries = [export_CZ]
+# TOTAL_DEMAND_countries = [TOTAL_DEMAND_CZ] #ok
+# pattern_countries = [r"^CZ..$"] #ok
 
 
 #= countries = ["HR"]
@@ -39,17 +39,27 @@ time_start = 2022 #CANNOT BE CHANGED
 
 
 ##Sets 
-for ii in 1:1 #1:length(countries)
+for ii in eachindex(countries)
 
+#exlude list : a string used to filter countries
+#two strings one with the not OK & one with countries OK
+
+ExcludeList = "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, GR, HR, HU, IE" * "FR, IT"
 country_name = countries[ii]
+if contains(ExcludeList,country_name) > 0 
+    println("skipping country : ", country_name)
+    continue
+end
 
 println("--------------- DATA for ", country_name, "--------------------")
+
 pattern = pattern_countries[ii]
 ports_coordinates = coord_countries[ii]
 g, consumers_dict, domestic_dict, port_dict, import_dict, export_dict  = create_graph(ports_coordinates,country_name,pattern,time_start)
 
 
 begin
+    println("entering Start")
     periods = 1:length(2023:2050)
     node_set = vertices(g)
     arc_dict = Dict(i => (e.src, e.dst) for (i,e) in enumerate(edges(g)))
@@ -87,6 +97,7 @@ begin
 end
 ##Parameters 
 begin
+    println("entering Parameters")
     γ = 0.99
     demand_multiplier = range(start = 1, stop = 0, length = length(periods)+1)[2:end]
     arc_capacity = Dict([a => get_prop(g, a..., :capacity_Mm3_per_d)*365/1000 for a in arc_set]) #bcm3 per year
@@ -135,6 +146,7 @@ begin
 end
 ##Model
 begin
+    println("entering Model")
     model = Model(HiGHS.Optimizer)
     @variables model begin 
         port_upgrade[port_set,periods], Bin
@@ -193,6 +205,9 @@ begin
     @expression(model, pipeline_construction_cost[t in periods], sum(port_upgrade[p,t]*fsru_per_port[p]*new_pipeline_length[p]*pipeline_cost_per_km for p in port_set))
     @expression(model, arc_flow_cost[t in periods], sum(arc_flow[a,t]*arc_length[a] for a in arc_set)*flow_cost)
     @expression(model, fsru_price_cost[t in periods], sum(fsru_flow[p,t] for p in port_set)*price_fsru)
+    println("List of import_countries_set: ", import_countries_set)
+    println("List of country_price: ", country_price)
+    println("country_price[ES]",country_price["ES"])
     @expression(model, import_price_cost[t in periods], sum(country_price[c]*import_flow[n,t] for c in keys(import_countries_set) for n in import_countries_set[c]))
     @expression(model, total_cost, sum(γ^t*(capex_cost[t] + opex_cost[t] +  pipeline_construction_cost[t] + arc_flow_cost[t] + fsru_price_cost[t] + import_price_cost[t]) for t in periods))
     @objective model Min total_cost

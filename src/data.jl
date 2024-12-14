@@ -572,7 +572,7 @@ price_fsru = 35.29*9769444.44/1e6 #ACER EU spot price [EUR/MWh] converted to Mâ‚
 price_ttf = price_fsru + 2.89*9769444.44/1e6 #add ACER TTF benchmark, converted (avg 31/03 -> 31/12 2023)
 price_hh = 2.496*35315000*1.0867/1e6 #$/mmbtu (US EIA) converted to Mâ‚¬/bcm (US EIA) (avg 04 -> 12 2023)
 
-country_price_at = Dict("DE" => price_hh, "CZ" => price_hh, "SK" => price_hh, "HU" => price_hh, "SI" => price_hh, "IT" => price_hh, "LI" => price_hh, "NotSpec" => price_hh, "CH" => price_hh, "XX" => price_hh)
+country_price_at = Dict("DE" => price_hh, "CZ" => price_hh, "SK" => price_hh, "HU" => price_hh, "SI" => price_hh, "IT" => price_hh, "LI" => price_hh, "NotSpec" => price_hh, "CH" => price_hh, "XX" => price_hh, "ES" => price_hh)
 
 country_price_be = Dict("FR" => price_ttf, "LU" => price_hh, "DE" => price_hh, "NL" => price_ttf, "XX" => price_hh,"QA" => price_hh, "US" => price_hh, "RU" => price_hh, "NO" => price_hh, "UK" => price_hh, "AO" => price_hh, "CM" => price_hh, "GQ" => price_hh, "DZ" => price_hh, "EG" => price_hh, "DK" => price_hh, "CH" => price_hh)
 
@@ -618,7 +618,7 @@ country_price_pl = Dict("DE" => price_hh, "CZ" => price_hh, "SK" => price_hh, "L
 
 country_price_pt = Dict("ES" => price_hh, "SE" => price_hh, "RU" => price_hh, "GQ" => price_hh, "NG" => price_hh, "US" => price_hh, "TT" => price_hh, "CH" => price_hh) 
 
-country_price_cz = Dict("DE" => price_hh, "PL" => price_hh, "SK" => price_hh, "AT" => price_hh, "CH" => price_hh)
+#country_price_cz = Dict("DE" => price_hh, "PL" => price_hh, "SK" => price_hh, "AT" => price_hh, "CH" => price_hh)
 
 country_price_ro = Dict("BG" => price_hh, "GR" => price_hh, "HU" => price_hh, "IT" => price_hh, "SK" => price_hh,"RU" => price_hh, "CH" => price_hh, "UA" =>price_hh, "MD"=>price_hh, "RS"=>price_hh, "XX"=>price_hh)
 
