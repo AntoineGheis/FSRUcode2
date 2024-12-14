@@ -44,7 +44,7 @@ for ii in eachindex(countries)
 #exlude list : a string used to filter countries
 #two strings one with the not OK & one with countries OK
 
-ExcludeList = "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, GR, HR, HU, IE" * "FR, IT"
+ExcludeList = "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, GR, HR, HU, IE, LT, LU, LV, MT, PL, RO, SE, SI, SK" * "FR, IT, NL, PT"
 country_name = countries[ii]
 if contains(ExcludeList,country_name) > 0 
     println("skipping country : ", country_name)
