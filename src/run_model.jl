@@ -1,40 +1,6 @@
 using FSRU, Distances, JuMP
 
 
-#rewriting data to study juste a "simple case" 
-#= countries = ["DK"]
-coord_countries = [coord_DK]
-country_prices = [country_price_dk]
-import_countries = [import_dk]
-export_countries = [export_DK]
-TOTAL_DEMAND_countries = [TOTAL_DEMAND_DK] #ok
-pattern_countries = [r"^DK..$"] #ok =#
-
-#= countries = ["DE"]
-coord_countries = [coord_DE]
-country_prices = [country_price_de]
-import_countries = [import_de]
-export_countries = [export_DE]
-TOTAL_DEMAND_countries = [TOTAL_DEMAND_DE] #ok
-pattern_countries = [r"^DE..$"] #ok =#
-
-# countries = ["CZ"]
-# coord_countries = [coord_CZ]
-# country_prices = [country_price_cz]
-# import_countries = [import_cz]
-# export_countries = [export_CZ]
-# TOTAL_DEMAND_countries = [TOTAL_DEMAND_CZ] #ok
-# pattern_countries = [r"^CZ..$"] #ok
-
-
-#= countries = ["HR"]
-coord_countries = [coord_HR]
-country_prices = [country_price_hr]
-import_countries = [import_hr]
-export_countries = [export_HR]
-TOTAL_DEMAND_countries = [TOTAL_DEMAND_HR] #ok
-pattern_countries = [r"^HR..$"] #ok =#
-
 time_start = 2022 #CANNOT BE CHANGED
 
 
@@ -44,13 +10,13 @@ for ii in eachindex(countries)
 #exlude list : a string used to filter countries
 #two strings one with the not OK & one with countries OK
 
-ExcludeList = "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, GR, HR, HU, IE, LT, LU, LV, MT, PL, RO, SE, SI, SK" * "FR, IT, NL, PT"
+#              AT, BE, BG, CY, DE, DK, EE, ES, FI, GR, HR, HU, IE, LT, LU, LV, MT, PL, RO, SE, SI, SK" * "CZ, FR, IT, NL, PT
+ExcludeList = "AT, BE, , CY, DE, DK, EE, ES, FI, GR, HR, HU, IE, LT, LU, LV, MT, PL, RO, SE, SI, SK" * "CZ, FR, IT, NL, PT"
 country_name = countries[ii]
 if contains(ExcludeList,country_name) > 0 
     println("skipping country : ", country_name)
     continue
 end
-
 println("--------------- DATA for ", country_name, "--------------------")
 
 pattern = pattern_countries[ii]
@@ -108,9 +74,9 @@ begin
     
     #import    
     countries_supply = import_countries[ii]    
-    price_fsru = 35.29*9769444.44/1e6 #ACER EU spot price [EUR/MWh] converted to M€/bcm (avg 31/03 -> 31/12 2023)
-    price_ttf = price_fsru + 2.89*9769444.44/1e6 #add ACER TTF benchmark, converted (avg 31/03 -> 31/12 2023)
-    price_hh = 2.496*35315000*1.0867/1e6 #$/mmbtu (US EIA) converted to M€/bcm (US EIA) (avg 04 -> 12 2023)
+    #price_fsru = 35.29*9769444.44/1e6 #ACER EU spot price [EUR/MWh] converted to M€/bcm (avg 31/03 -> 31/12 2023)
+    #price_ttf = price_fsru + 2.89*9769444.44/1e6 #add ACER TTF benchmark, converted (avg 31/03 -> 31/12 2023)
+    #price_hh = 2.496*35315000*1.0867/1e6 #$/mmbtu (US EIA) converted to M€/bcm (US EIA) (avg 04 -> 12 2023)
     country_price = country_prices[ii]
     total_import = sum(values(countries_supply))
     #ports
@@ -212,7 +178,7 @@ begin
     @expression(model, total_cost, sum(γ^t*(capex_cost[t] + opex_cost[t] +  pipeline_construction_cost[t] + arc_flow_cost[t] + fsru_price_cost[t] + import_price_cost[t]) for t in periods))
     @objective model Min total_cost
 end;
-#optimize!(model) #Infeasible
+optimize!(model) #Infeasible
 
 p = 1e0
 c_map = relax_with_penalty!(model, merge(Dict(model[:c_arc_capacity] .=> p), Dict(model[:c_bidirectional] .=> p)))
@@ -255,7 +221,7 @@ end
 
 println("capex: ", value(sum(capex_cost)) + value(sum(pipeline_construction_cost)))
 println("opex: ", value(sum(opex_cost)))
-fsruimp = value(sum(fsru_flow))
+fsruimp = value(sum(skipmissing(fsru_flow); init = 0.0))
 println("FSRU imports: ", fsruimp," ", fsruimp*price_fsru)
 #ttfimp = value(sum(sum(import_flow[n,:]) for n in import_set if n in reduce(vcat, [import_countries_set["BE"], import_countries_set["NL"], import_countries_set["FR"]])))
 #println("TTF imports: ", ttfimp," ", ttfimp*price_ttf)

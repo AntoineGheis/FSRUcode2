@@ -576,7 +576,7 @@ country_price_at = Dict("DE" => price_hh, "CZ" => price_hh, "SK" => price_hh, "H
 
 country_price_be = Dict("FR" => price_ttf, "LU" => price_hh, "DE" => price_hh, "NL" => price_ttf, "XX" => price_hh,"QA" => price_hh, "US" => price_hh, "RU" => price_hh, "NO" => price_hh, "UK" => price_hh, "AO" => price_hh, "CM" => price_hh, "GQ" => price_hh, "DZ" => price_hh, "EG" => price_hh, "DK" => price_hh, "CH" => price_hh)
 
-country_price_bg = Dict("RO" => price_hh, "GR" => price_hh, "RU" => price_hh, "US" => price_hh, "AZ" => price_hh, "CH" => price_hh, "TR" =>price_hh, "XX"=>price_hh, "MK" =>price_hh, "RS" =>price_hh)
+country_price_bg = Dict("RO" => price_hh, "GR" => price_hh, "RU" => price_hh, "US" => price_hh, "AZ" => price_hh, "CH" => price_hh, "TR" =>price_hh, "XX"=>price_hh, "MK" =>price_hh, "RS" =>price_hh, "ES" => price_hh)
 
 country_price_cy = Dict()
 

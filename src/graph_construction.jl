@@ -3,7 +3,9 @@ import Distances
 export detect_islands, create_graph
 
 function k_nearest_nodes(node, candidates, k) 
+    #println("candidates: ", candidates) 
     candidates_s = sort(candidates, by = c-> Distances.euclidean(node, c))
+    #println("candidates_s: ", candidates_s)
     return candidates_s[1:k]
 end
 
@@ -195,7 +197,9 @@ function create_graph(ports_coordinates,country_name,pattern,time_start)
     
     ######### Ports linkages
     port_nodes = Dict{String, Int}()
+    #println("coo_to_node: ", coo_to_node)
     candidates = collect(k for (k,v) in coo_to_node if outdegree(g, v) >= 1)
+    #println("candidates : ", candidates)
     for (port_name,coor) in ports_coordinates
         closest = k_nearest_nodes(coor, candidates , 1)
         closest_node = coo_to_node[only(closest)]
