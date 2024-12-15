@@ -598,33 +598,33 @@ country_price_fr = Dict("BE" => price_ttf, "LU" => price_ttf, "DE" => price_ttf,
 
 country_price_gr = Dict("BG" => price_hh, "RU" => 1.0, "NO" => price_hh, "TR" => price_hh, "CM" => price_hh, "DZ" => price_hh, "EG" => price_hh, "NG" => price_hh, "US" => price_hh, "AZ" => price_hh,"OM" => price_hh, "ES" => price_hh, "SE" => price_hh, "CH" => price_hh, "MK" => price_hh)
 
-country_price_hu = Dict("AT" => price_hh, "SK" => price_hh, "RO" => price_hh, "HR" => price_hh, "SI" => price_hh, "RU" => price_hh, "NotSpec" => price_hh, "CH" => price_hh, "XX"=>price_hh, "UA"=>price_hh, "RS"=>price_hh)
+country_price_hu = Dict("AT" => price_hh, "SK" => price_hh, "RO" => price_hh, "HR" => price_hh, "SI" => price_hh, "RU" => price_hh, "NotSpec" => price_hh, "CH" => price_hh, "XX"=>price_hh, "UA"=>price_hh, "RS"=>price_hh, "ES" => price_hh)
 
-country_price_ie = Dict("UK" => price_hh, "CH" => price_hh, "GB" =>price_hh, "XX"=>price_hh)
+country_price_ie = Dict("UK" => price_hh, "CH" => price_hh, "GB" =>price_hh, "XX"=>price_hh, "ES" => price_hh)
 
 country_price_it = Dict("XX" => price_hh, "FR" => price_hh, "AT" => price_hh, "SI" => price_hh, "NL" => price_hh, "SI" => price_hh, "ES" => price_hh, "RU" => price_hh, "NO" => price_hh, "DZ" => price_hh, "EG" => price_hh, "LY" => price_hh, "NG" => price_hh, "US" => price_hh, "TT" => price_hh, "AZ" => price_hh,"QA" => price_hh, "CH" => price_hh, "SM"=>price_hh, "VA"=>price_hh)
 
 country_price_lv = Dict("FI" => price_hh, "LT" => price_hh, "RU" => price_hh, "CH" => price_hh, "BY"=> price_hh, "EE" => price_hh)
 
-country_price_lt = Dict("LV" => price_hh, "BY" => price_hh, "PL" => price_hh, "NO" => price_hh, "US" => price_hh, "CH" => price_hh,"BY"=>price_hh, "XX"=>price_hh,"RU" => price_hh)
+country_price_lt = Dict("LV" => price_hh, "BY" => price_hh, "PL" => price_hh, "NO" => price_hh, "US" => price_hh, "CH" => price_hh,"BY"=>price_hh, "XX"=>price_hh,"RU" => price_hh, "ES" => price_hh)
 
-country_price_lu = Dict("BE" => price_ttf, "DE" => price_ttf, "FR" => price_ttf, "NL" => price_hh, "NO" => price_hh, "NotSpec" => price_hh, "CH" => price_hh)
+country_price_lu = Dict("BE" => price_ttf, "DE" => price_ttf, "FR" => price_ttf, "NL" => price_hh, "NO" => price_hh, "NotSpec" => price_hh, "CH" => price_hh, "ES" => price_hh)
 
 country_price_mt = Dict("US" => price_hh, "TT" => price_hh, "CH" => price_hh)
 
 country_price_nl = Dict("BE" => price_ttf, "DE" => price_hh, "FR" => price_hh,"ES" => price_hh, "SE" => price_hh, "RU" => price_hh, "NO" => price_hh, "NotSpec" => price_hh, "AO" => price_hh, "CM" => price_hh, "GQ" => price_hh, "DZ" => price_hh, "EG" => price_hh, "NG" => price_hh, "US" => price_hh, "TT" => price_hh,"QA" => price_hh, "CH" => price_hh , "XX" =>price_hh)
 
-country_price_pl = Dict("DE" => price_hh, "CZ" => price_hh, "SK" => price_hh, "LT" => price_hh, "RU" => price_hh, "EG" => price_hh, "NG" => price_hh, "US" => price_hh, "TT" => price_hh,"QA" => price_hh, "CH" => price_hh, "UA"=>price_hh, "BY"=>price_hh)
+country_price_pl = Dict("DE" => price_hh, "CZ" => price_hh, "SK" => price_hh, "LT" => price_hh, "RU" => price_hh, "EG" => price_hh, "NG" => price_hh, "US" => price_hh, "TT" => price_hh,"QA" => price_hh, "CH" => price_hh, "UA"=>price_hh, "BY"=>price_hh, "ES" => price_hh)
 
 country_price_pt = Dict("ES" => price_hh, "SE" => price_hh, "RU" => price_hh, "GQ" => price_hh, "NG" => price_hh, "US" => price_hh, "TT" => price_hh, "CH" => price_hh) 
 
-country_price_ro = Dict("BG" => price_hh, "GR" => price_hh, "HU" => price_hh, "IT" => price_hh, "SK" => price_hh,"RU" => price_hh, "CH" => price_hh, "UA" =>price_hh, "MD"=>price_hh, "RS"=>price_hh, "XX"=>price_hh)
+country_price_ro = Dict("BG" => price_hh, "GR" => price_hh, "HU" => price_hh, "IT" => price_hh, "SK" => price_hh,"RU" => price_hh, "CH" => price_hh, "UA" =>price_hh, "MD"=>price_hh, "RS"=>price_hh, "XX"=>price_hh, "ES" => price_hh)
 
-country_price_sk = Dict("CZ" => price_hh, "PL" => price_hh, "UA" => price_hh, "HU" => price_hh, "AT" => price_hh, "RU" => price_hh, "XX" => price_hh, "CH" => price_hh, "UA"=>price_hh)
+country_price_sk = Dict("CZ" => price_hh, "PL" => price_hh, "UA" => price_hh, "HU" => price_hh, "AT" => price_hh, "RU" => price_hh, "XX" => price_hh, "CH" => price_hh, "UA"=>price_hh, "ES" => price_hh)
 
-country_price_si = Dict("IT" => price_hh, "AT" => price_hh, "HU" => price_hh, "HR" => price_hh, "RU" => price_hh, "DZ" => price_hh, "CH" => price_hh)
+country_price_si = Dict("IT" => price_hh, "AT" => price_hh, "HU" => price_hh, "HR" => price_hh, "RU" => price_hh, "DZ" => price_hh, "CH" => price_hh, "ES" => price_hh)
 
-country_price_se = Dict("FI" => price_hh, "RU" => price_hh, "NO" => price_hh, "US" => price_hh, "CH" => price_hh, "DK" => price_hh)
+country_price_se = Dict("FI" => price_hh, "RU" => price_hh, "NO" => price_hh, "US" => price_hh, "CH" => price_hh, "DK" => price_hh, "ES" => price_hh)
 
 TOTAL_DEMAND_CY = range(0.0, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_BE = range(24.1743, 0., length(2022:2050))[2:end]

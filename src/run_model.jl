@@ -10,8 +10,8 @@ for ii in eachindex(countries)
 #exlude list : a string used to filter countries
 #two strings one with the not OK & one with countries OK
 
-#              AT, BE, BG, CY, DE, DK, EE, ES, FI, GR, HR, HU, IE, LT, LU, LV, MT, PL, RO, SE, SI, SK" * "CZ, FR, IT, NL, PT
-ExcludeList = "AT, BE, , CY, DE, DK, EE, ES, FI, GR, HR, HU, IE, LT, LU, LV, MT, PL, RO, SE, SI, SK" * "CZ, FR, IT, NL, PT"
+#              AT, BE, CY, DE, DK, EE, ES, FI, GR, HR, IE,  LV, MT, PL, RO, SE, SI, SK" * "BG, CZ, FR, HU, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK
+ExcludeList = "AT, BE, CY, DE, DK, EE, ES, FI, GR, , LV, MT, " * "BG, CZ, FR, HU, IE, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK"
 country_name = countries[ii]
 if contains(ExcludeList,country_name) > 0 
     println("skipping country : ", country_name)
