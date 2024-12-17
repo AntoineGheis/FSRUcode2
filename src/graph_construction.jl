@@ -344,7 +344,7 @@ function create_graph(ports_coordinates,country_name,pattern,time_start)
             @info "coo_to_node[$(neigh)] = $(coo_to_node[neigh])"
             incapacity = sum(get_prop(g, n, node_id, :capacity_Mm3_per_d) for n in inneighbors(g, node_id))
             @info "incapacity : $(incapacity)"
-            println("graph:\n ", g)
+            #println("graph:\n ", g)
             current_percentage = get_prop(g, node_id, :gdp_percentage)
             set_prop!(g, node_id, :gdp_percentage, current_percentage + incapacity/total_neigh_incapacity*nut_proportion) #add the unlinked percentage to old percentage
         end

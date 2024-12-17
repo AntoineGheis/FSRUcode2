@@ -11,7 +11,8 @@ for ii in eachindex(countries)
 #two strings one with the not OK & one with countries OK
 
 #              AT, BE, CY, DE, DK, EE, ES, FI, GR, HR, IE,  LV, MT, PL, RO, SE, SI, SK" * "BG, CZ, FR, HU, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK
-ExcludeList = "AT, BE, CY, DE, DK, EE, ES, FI, GR, , LV, MT, " * "BG, CZ, FR, HU, IE, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK"
+#ExcludeList = "AT, BE, CY, DE, DK, EE, ES, FI, GR, , LV, MT, " * "BG, CZ, FR, HU, IE, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK"
+ExcludeList = "AT, BE, CY, DE, DK, EE, ES, FI, GR, HR, LV, MT, "
 country_name = countries[ii]
 if contains(ExcludeList,country_name) > 0 
     println("skipping country : ", country_name)
@@ -171,14 +172,14 @@ begin
     @expression(model, pipeline_construction_cost[t in periods], sum(port_upgrade[p,t]*fsru_per_port[p]*new_pipeline_length[p]*pipeline_cost_per_km for p in port_set))
     @expression(model, arc_flow_cost[t in periods], sum(arc_flow[a,t]*arc_length[a] for a in arc_set)*flow_cost)
     @expression(model, fsru_price_cost[t in periods], sum(fsru_flow[p,t] for p in port_set)*price_fsru)
-    println("List of import_countries_set: ", import_countries_set)
-    println("List of country_price: ", country_price)
-    println("country_price[ES]",country_price["ES"])
+    #println("List of import_countries_set: ", import_countries_set)
+    #println("List of country_price: ", country_price)
+    #println("country_price[ES]",country_price["ES"])
     @expression(model, import_price_cost[t in periods], sum(country_price[c]*import_flow[n,t] for c in keys(import_countries_set) for n in import_countries_set[c]))
     @expression(model, total_cost, sum(γ^t*(capex_cost[t] + opex_cost[t] +  pipeline_construction_cost[t] + arc_flow_cost[t] + fsru_price_cost[t] + import_price_cost[t]) for t in periods))
     @objective model Min total_cost
 end;
-optimize!(model) #Infeasible
+#optimize!(model) #Infeasible
 
 p = 1e0
 c_map = relax_with_penalty!(model, merge(Dict(model[:c_arc_capacity] .=> p), Dict(model[:c_bidirectional] .=> p)))
