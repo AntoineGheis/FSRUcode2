@@ -3,16 +3,47 @@ using FSRU, Distances, JuMP
 
 time_start = 2022 #CANNOT BE CHANGED
 
+#exlude list : a string used to filter countries
+#two strings one with the not OK & one with countries OK
+
+#ExcludeList = "AT, BE, CY, DE, DK, EE, ES, FI, GR, , LV, MT, " * "BG, CZ, FR, HU, IE, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK"
+ExcludeList = "AT, "
+ExcludeList = ExcludeList * "BE, "
+ExcludeList = ExcludeList * "BG, "
+ExcludeList = ExcludeList * "CY, "
+ExcludeList = ExcludeList * "CZ, " #Infeasible message 
+ExcludeList = ExcludeList * "DE, "
+ExcludeList = ExcludeList * "DK, "
+ExcludeList = ExcludeList * "EE, "
+ExcludeList = ExcludeList * "ES, "
+ExcludeList = ExcludeList * "FI, "
+ExcludeList = ExcludeList * "FR, " #OK
+
+ExcludeList = ExcludeList * "GR, "
+ExcludeList = ExcludeList * "HR, "
+ExcludeList = ExcludeList * "HU, "
+
+ExcludeList = ExcludeList * "IE, "
+ExcludeList = ExcludeList * "IT, " #very long
+
+ExcludeList = ExcludeList * "LV, " #OK
+ExcludeList = ExcludeList * "LT, " #OK
+ExcludeList = ExcludeList * "LU, " #OK
+ExcludeList = ExcludeList * "MT, "
+ExcludeList = ExcludeList * "NL, "
+ExcludeList = ExcludeList * "PL, "
+ExcludeList = ExcludeList * "PT, "
+ExcludeList = ExcludeList * "RO, "
+ExcludeList = ExcludeList * "SE, "
+ExcludeList = ExcludeList * "SI, "
+#ExcludeList = ExcludeList * "SK " #OK
+
+println("ExcludeList : " * ExcludeList);
 
 ##Sets 
 for ii in eachindex(countries)
 
-#exlude list : a string used to filter countries
-#two strings one with the not OK & one with countries OK
 
-#              AT, BE, CY, DE, DK, EE, ES, FI, GR, HR, IE,  LV, MT, PL, RO, SE, SI, SK" * "BG, CZ, FR, HU, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK
-#ExcludeList = "AT, BE, CY, DE, DK, EE, ES, FI, GR, , LV, MT, " * "BG, CZ, FR, HU, IE, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK"
-ExcludeList = "AT, BE, CY, DE, DK, EE, ES, FI, GR, HR, LV, MT, "
 country_name = countries[ii]
 if contains(ExcludeList,country_name) > 0 
     println("skipping country : ", country_name)
