@@ -253,7 +253,7 @@ end
 
 println("capex: ", value(sum(capex_cost)) + value(sum(pipeline_construction_cost)))
 println("opex: ", value(sum(opex_cost)))
-fsruimp = value(sum(skipmissing(fsru_flow); init = 0.0))
+fsruimp = value(sum(skipmissing(fsru_flow); init = 0.0)) # !!! added to avoid to try to sum on an empty array (linked to the problem with "ES")
 println("FSRU imports: ", fsruimp," ", fsruimp*price_fsru)
 #ttfimp = value(sum(sum(import_flow[n,:]) for n in import_set if n in reduce(vcat, [import_countries_set["BE"], import_countries_set["NL"], import_countries_set["FR"]])))
 #println("TTF imports: ", ttfimp," ", ttfimp*price_ttf)
