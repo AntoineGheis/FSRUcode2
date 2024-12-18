@@ -4,7 +4,7 @@ using FSRU, Distances, JuMP
 time_start = 2022 #CANNOT BE CHANGED
 
 #exlude list : a string used to filter countries
-#two strings one with the not OK & one with countries OK
+
 
 #ExcludeList = "AT, BE, CY, DE, DK, EE, ES, FI, GR, , LV, MT, " * "BG, CZ, FR, HU, IE, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK"
 ExcludeList = "AT, "
