@@ -8,7 +8,7 @@ time_start = 2022 #CANNOT BE CHANGED
 
 #ExcludeList = "AT, BE, CY, DE, DK, EE, ES, FI, GR, , LV, MT, " * "BG, CZ, FR, HU, IE, IT, LT, LU, NL, PL, PT, RO, SE, SI, SK"
 ExcludeList = "AT, "
-ExcludeList = ExcludeList * "BE, "
+ExcludeList = ExcludeList * "BE, "#Infeasible message 
 ExcludeList = ExcludeList * "BG, "
 ExcludeList = ExcludeList * "CY, "
 ExcludeList = ExcludeList * "CZ, " #Infeasible message 
