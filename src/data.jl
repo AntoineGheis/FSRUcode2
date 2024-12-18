@@ -399,7 +399,7 @@ import_cz = Dict(
 
 import_dk = Dict(
     "AT" => 0.0, "BE" => 0.0, "BG" => 0.0, "HR" => 0.0, "CY" => 0.0, "CZ" => 0.0, "CH" => 0.0,
-    "DK" => 0.0, "EE" => 0.0, "FI" => 0.0, "FR" => 0.0, "DE" => 0.0, "GR" => 0.0, 
+    "DK" => 0.0, "EE" => 0.0, "FI" => 0.0, "FR" => 0.0, "DE" => 1.944, "GR" => 0.0, 
     "HU" => 0.0, "IE" => 0.0, "IT" => 0.0, "LV" => 0.0, "LT" => 0.0, "LU" => 0.0, 
     "MT" => 0.0, "NL" => 0.0, "PL" => 0.0, "PT" => 0.0, "RO" => 0.0, "SK" => 0.0, 
     "SI" => 0.0, "ES" => 0.0, "SE" => 0.0, "NO" => 0.772796, "XX"=> 0.0 
@@ -428,7 +428,7 @@ import_ie = Dict(
     "DK" => 0.0, "EE" => 0.0, "FI" => 0.0, "FR" => 0.0, "DE" => 0.0, "GR" => 0.0, 
     "HU" => 0.0, "IE" => 0.0, "IT" => 0.0, "LV" => 0.0, "LT" => 0.0, "LU" => 0.0, 
     "MT" => 0.0, "NL" => 0.0, "PL" => 0.0, "PT" => 0.0, "RO" => 0.0, "SK" => 0.0, 
-    "SI" => 0.0, "ES" => 0.0, "SE" => 0.0, "GB" =>0.0, "XX"=>0.0, "UK" =>0.0
+    "SI" => 0.0, "ES" => 0.0, "SE" => 0.0, "GB" =>0.0, "XX"=>0.0, "UK" =>3.846
 )
 
 import_gr = Dict(
@@ -443,7 +443,7 @@ import_es = Dict(
     "AT" => 0.0, "BE" => 5.002656, "BG" => 0.0, "HR" => 0.0, "CY" => 0.0, "CZ" => 0.0, "CH" => 0.0,
     "DK" => 0.0, "EE" => 0.0, "FI" => 0.0, "FR" => 1.695126, "DE" => 0.0, "GR" => 0.0, 
     "HU" => 0.0, "IE" => 0.0, "IT" => 0.0, "LV" => 0.0, "LT" => 0.0, "LU" => 0.0, 
-    "MT" => 0.0, "NL" => 0.000017, "PL" => 0.0, "PT" => 0.416749, "RO" => 0.0, "SK" => 0.0, 
+    "MT" => 0.0, "NL" => 0.000017, "PL" => 0.0, "PT" => 0.416749, "RO" => 0.0, "SK" => 0.0, "NO"=> 0.357,
     "SI" => 0.0, "ES" => 0.0, "SE" => 0.0, "RU" =>4.982849, "AO" => 0.275957, "CM" => 0.282763, "GQ" => 0.528595, "DZ" => 9.377573, "EG" => 1.338512, "NG" => 5.675006, "US" => 11.459903, "TT" => 1.124433,"QA" => 1.372527,"OM" => 0.524446
 )
 
@@ -588,7 +588,7 @@ country_price_de =  Dict("BE" => price_ttf, "AT" => price_hh, "NO" => price_hh, 
 
 country_price_dk = Dict("DE" => price_hh, "NO" => price_hh, "CH" => price_hh, "XX" => price_hh)
 
-country_price_es = Dict("PT" => price_hh, "FR" => price_ttf, "BE" => price_ttf, "NL" => price_ttf, "RU" => price_hh, "AO" => price_hh, "CM" => price_hh, "GQ" => price_hh, "DZ" => price_hh, "EG" => price_hh, "NG" => price_hh, "US" => price_hh, "TT" => price_hh, "QA" => price_hh," OM" => price_hh, "CH" => price_hh)
+country_price_es = Dict("PT" => price_hh, "FR" => price_ttf, "BE" => price_ttf, "NL" => price_ttf, "RU" => price_hh, "AO" => price_hh, "CM" => price_hh, "GQ" => price_hh, "DZ" => price_hh, "EG" => price_hh, "NG" => price_hh, "US" => price_hh, "TT" => price_hh, "QA" => price_hh," OM" => price_hh, "CH" => price_hh, "NO" => price_hh,)
 
 country_price_ee = Dict("LT" => price_hh, "CH" => price_hh, "RU" =>price_hh,"XX"=>price_hh, "LV"=> price_hh)
 
@@ -631,20 +631,20 @@ TOTAL_DEMAND_BE = range(24.1743, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_BG = range(2.911098, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_CZ = range(8.612009, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_DK = range(2.717321, 0., length(2022:2050))[2:end]
-TOTAL_DEMAND_DE = range(67.694613, 0., length(2022:2050))[2:end]
+TOTAL_DEMAND_DE = range(87.694613, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_EE = range(0.42, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_IE = range(3.846409, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_GR = range(5.727447, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_ES = range(39.692252, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_FR = range(55.350689, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_HR = range(3.0215, 0., length(2022:2050))[2:end]
-TOTAL_DEMAND_IT = range(52.591358, 0., length(2022:2050))[2:end]
+TOTAL_DEMAND_IT = range(72.591358, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_LV = range(0.841405, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_LT = range(3.5438, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_LU = range(0.588969, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_HU = range(9.314, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_MT = range(0.384442, 0., length(2022:2050))[2:end]
-TOTAL_DEMAND_NL = range(28.999713, 0., length(2022:2050))[2:end]
+TOTAL_DEMAND_NL = range(38.999713, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_AT = range(12.19007, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_PL = range(15.198471, 0., length(2022:2050))[2:end]
 TOTAL_DEMAND_PT = range(5.802921, 0., length(2022:2050))[2:end]
