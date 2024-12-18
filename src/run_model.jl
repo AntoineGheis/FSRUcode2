@@ -12,20 +12,17 @@ ExcludeList = ExcludeList * "BE, "
 ExcludeList = ExcludeList * "BG, "
 ExcludeList = ExcludeList * "CY, "
 ExcludeList = ExcludeList * "CZ, " #Infeasible message 
-ExcludeList = ExcludeList * "DE, "
+ExcludeList = ExcludeList * "DE, " # ok
 ExcludeList = ExcludeList * "DK, "
 ExcludeList = ExcludeList * "EE, "
 ExcludeList = ExcludeList * "ES, "
 ExcludeList = ExcludeList * "FI, "
 ExcludeList = ExcludeList * "FR, " #OK
-
 ExcludeList = ExcludeList * "GR, "
 ExcludeList = ExcludeList * "HR, "
 ExcludeList = ExcludeList * "HU, "
-
 ExcludeList = ExcludeList * "IE, "
 ExcludeList = ExcludeList * "IT, " #very long
-
 ExcludeList = ExcludeList * "LV, " #OK
 ExcludeList = ExcludeList * "LT, " #OK
 ExcludeList = ExcludeList * "LU, " #OK
@@ -36,7 +33,7 @@ ExcludeList = ExcludeList * "PT, "
 ExcludeList = ExcludeList * "RO, "
 ExcludeList = ExcludeList * "SE, "
 ExcludeList = ExcludeList * "SI, "
-#ExcludeList = ExcludeList * "SK " #OK
+ExcludeList = ExcludeList * "SK " #OK
 
 println("ExcludeList : " * ExcludeList);
 
