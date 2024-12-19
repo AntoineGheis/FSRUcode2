@@ -321,7 +321,11 @@ function create_graph(ports_coordinates,country_name,pattern,time_start)
     for r in eachrow(domestic_df)        
         coo = (r.x_coor, r.y_coor)
         node_id = coo_to_node[coo]
-        incapacity = sum(get_prop(g, n, node_id, :capacity_Mm3_per_d) for n in inneighbors(g, node_id))
+        if isempty(inneighbors(g, node_id))
+            incapacity = 0.
+        else
+            incapacity = sum(get_prop(g, n, node_id, :capacity_Mm3_per_d) for n in inneighbors(g, node_id))
+        end
         node_nut_proportion = incapacity / nuts_incapacities[r.nuts_id_2]
         nut_proportion = r.nuts_gdp / TOTAL_GDP
         set_props!(g, node_id, Dict(:gdp_percentage => nut_proportion*node_nut_proportion))
@@ -335,7 +339,8 @@ function create_graph(ports_coordinates,country_name,pattern,time_start)
         nut_row = only(@rsubset nuts_df :geo == nut)
         coor = tuple(nut_row.coordinates.coordinates...)
         nut_proportion = nut_row.gdp/TOTAL_GDP
-        k_neighbours = round(Int,nut_proportion*nv(g))
+
+        k_neighbours = max(1,round(Int,nut_proportion*nv(g)))
         knn = k_nearest_nodes(coor, collect(keys(domestic_dict)), k_neighbours)
         total_neigh_incapacity = sum(get_prop(g, inneigh, coo_to_node[neigh], :capacity_Mm3_per_d) for neigh in knn for inneigh in inneighbors(g, coo_to_node[neigh]))
         for neigh in knn
@@ -345,8 +350,12 @@ function create_graph(ports_coordinates,country_name,pattern,time_start)
             incapacity = sum(get_prop(g, n, node_id, :capacity_Mm3_per_d) for n in inneighbors(g, node_id))
             #@info "incapacity : $(incapacity)"
             #println("graph:\n ", g)
-            current_percentage = get_prop(g, node_id, :gdp_percentage)
-            set_prop!(g, node_id, :gdp_percentage, current_percentage + incapacity/total_neigh_incapacity*nut_proportion) #add the unlinked percentage to old percentage
+            if has_prop(g, node_id, :gdp_percentage)
+                current_percentage = get_prop(g, node_id, :gdp_percentage)
+                set_prop!(g, node_id, :gdp_percentage, current_percentage + incapacity/total_neigh_incapacity*nut_proportion) #add the unlinked percentage to old percentage
+            else
+                @warn "Skipped node with :gdp_percentage"
+            end
         end
     end
     return g, consumers_dict, domestic_dict, port_nodes, import_nodes, export_nodes
